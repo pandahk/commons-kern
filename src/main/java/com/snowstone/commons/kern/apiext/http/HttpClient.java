@@ -1,5 +1,6 @@
 package com.snowstone.commons.kern.apiext.http;
 
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
 
 import org.apache.commons.lang.StringUtils;
@@ -94,29 +95,23 @@ public abstract class HttpClient {
 		return IOUtil.mergeFolderAndFilePath(Conf.get("common.http.url.pre"), relaUrl);
 	}
 
-	/***
-	 * 返回结果
-	 * 
-	 * @param relaUrl
-	 *            相对地址
-	 * @param params
-	 * @return
-	 * @throws ProjectException
-	 *//*
-	public static JSONObject doPostRela(String relaUrl, Object... params) throws ProjectException {
-		JSONObject param = JSONUtil.packParams(params);
-		return doPostRela(relaUrl, param);
+	public static void main(String[] args) {
+		String url="http://gc.ditu.aliyun.com/geocoding";
+		JSONObject jb=new JSONObject();
+		jb.put("a", "苏州市");
+		HttpResult hr=doPost(url, jb, null);
+		System.out.println(hr.getBodyStr());
+		
+//		String ul="https://suggest.taobao.com/sug?code=utf-8&q=%E5%8D%AB%E8%A1%A3&callback=cb";
+//		FutureTask<HttpResult> gethr=doGetAsyn(ul);
+//		try {
+//			System.out.println(gethr.get().getBodyStr());
+//		} catch (InterruptedException e) {
+//			e.printStackTrace();
+//		} catch (ExecutionException e) {
+//			e.printStackTrace();
+//		}
+		
 	}
-
-	public static JSONObject doPostRela(String relaUrl, JSONObject params) throws ProjectException {
-		HttpResult ret = HttpClient.doPost(HttpClient.packurl(relaUrl), params);
-		if (ret == null) {
-			log.info("[url]:{} [params]:{}", relaUrl, params.toJSONString());
-			throw new ProjectException(ExceptAll.project_timeout, "调用EB超时");
-		}
-		String retstr = ret.getBodyStr();
-		JSONObject retjson = JSONObject.parseObject(retstr);
-		return retjson;
-	}*/
 
 }
