@@ -14,8 +14,10 @@ import java.util.Set;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.mvel2.MVEL;
 
 import com.snowstone.commons.kern.Conf;
+import com.snowstone.commons.kern.apiext.reflect.ReflectAssist;
 
 public abstract class CollectionUtil {
 	
@@ -150,5 +152,31 @@ public abstract class CollectionUtil {
 		}
 		return retMap;
 	}
-
+	/**
+	 * 通过List得到对象的单个列值
+	 * 
+	 * @param fromList
+	 *            要操作的数据源
+	 * @param colName
+	 *            要提取的列名
+	 * @return List 提取预定列的List
+	 */
+	public static List<?> getColFromObj(List<?> fromList, String colName) {
+		List<Object> retList = new ArrayList<Object>();
+		if (CollectionUtils.isEmpty(fromList)) {
+			return retList;
+		}
+		for (Object object : fromList) {
+			Object result = null;
+			if (ReflectAssist.isInterface(object.getClass(), "java.util.Map")) {
+				Map tempObjMap = (Map) object;
+				result = tempObjMap.get(colName);
+			} else {
+				result = MVEL.eval(colName, object);
+			}
+			retList.add(result);
+		}
+		return retList;
+	}
+	
 }

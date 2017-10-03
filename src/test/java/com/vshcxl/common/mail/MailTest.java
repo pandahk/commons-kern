@@ -8,7 +8,7 @@ public class MailTest {
 
 	@Test
 	public void send(){
-	        String smtp = "smtp.exmail.qq.com";  //SMTP服务器
+	        String smtp = "smtp.qq.com";  //SMTP服务器
 	        String to = "928684283@qq.com";  
 	        String from = "2796717901@qq.com";  
 	        String copyto = "";  //抄送人

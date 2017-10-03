@@ -268,7 +268,7 @@ public class Mail {
      */  
     public static boolean sendAndCc(String smtp,String from,String to,String copyto,String subject,String content,String username,String password) {  
         Mail theMail = new Mail(smtp);  
-        theMail.setNeedAuth(true); //需要验证  
+        theMail.setNeedAuth(false); //需要验证  
           
         if(!theMail.setSubject(subject)) return false;  
         if(!theMail.setBody(content)) return false;  
