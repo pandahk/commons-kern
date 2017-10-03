@@ -22,7 +22,6 @@ import com.snowstone.commons.kern.apiext.io.IOUtil;
 
 
 /****
- * 配置文件会在30秒刷一下是否更新
  * 
  * @author vshcxl
  *
@@ -30,8 +29,6 @@ import com.snowstone.commons.kern.apiext.io.IOUtil;
 public abstract class Conf {
 	private static Logger logger = LoggerFactory.getLogger(Conf.class);
 	private static final Properties utilProperties = IOUtil.fileToProperties("/commons.properties", Conf.class);// 属性配置
-	// 默认区域
-	private static Locale curLocale = new Locale(get("common.i18n"));
 
 	
 	/***
@@ -56,17 +53,6 @@ public abstract class Conf {
 		return CollectionUtil.getPropsByKeypre(utilProperties, key);
 	}
 
-	/***
-	 * 设置当前的Locale
-	 * 
-	 * @param curLocale
-	 *            要设置的Locale
-	 */
-	public static void setCurLocale(Locale curLocale) {
-		if (curLocale != null) {
-			Conf.curLocale = curLocale;
-		}
-	}
 
 	/***
 	 * 得到配置文件的副本，防止配置文件的属性被窜改
@@ -77,13 +63,5 @@ public abstract class Conf {
 		return (Properties) utilProperties.clone();
 	}
 
-	/***
-	 * 得到当前的Locale
-	 * 
-	 * @return 当前的Locale
-	 */
-	public static Locale getCurLocale() {
-		return curLocale;
-	}
 
 }
