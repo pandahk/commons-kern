@@ -7,7 +7,6 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Properties;
 import java.util.Set;
 
 import org.apache.commons.collections.CollectionUtils;
@@ -23,25 +22,14 @@ import redis.clients.jedis.JedisPoolConfig;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.snowstone.commons.kern.Conf;
-import com.snowstone.commons.kern.Conf.Callback;
 import com.snowstone.commons.kern.apiext.reflect.ReflectAssist;
 
 public abstract class RedisClient {
 	private static Logger logger = LoggerFactory.getLogger(RedisClient.class);
 	private static volatile JedisPool jedisPool;// 非切片连接池
 	private static int defautlDb = 0;// 默认数据库
-	private static boolean initPool = false;
 	private final static Object lockObj = new Object();
 	public final static Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create();// gson的格式化
-
-	static {
-		Conf.addCallBack("redis", new Callback() {
-			@Override
-			public void doReshConf(Properties newProperties) {
-				RedisClient.setInitPool(true);// Redis动态刷新
-			}
-		}, "redisserver%s");
-	}
 
 	/****
 	 * 通过配置得到 Jedis
@@ -49,10 +37,9 @@ public abstract class RedisClient {
 	 * @return Jedis实例
 	 */
 	public static final Jedis getConnection() {
-		if (jedisPool == null || initPool) {
+		if (jedisPool == null) {
 			synchronized (lockObj) {
-				if (jedisPool == null || initPool) {
-					initPool = false;
+				if (jedisPool == null) {
 					String name = "redisserver";
 					Map<String, String> confMap = Conf.getPre(name);
 					JedisPoolConfig config = new JedisPoolConfig();
@@ -61,11 +48,11 @@ public abstract class RedisClient {
 					config.setMaxWaitMillis(Integer.parseInt(confMap.get(name + ".maxWaitMillis")));
 					config.setTestOnBorrow(Boolean.parseBoolean(confMap.get(name + ".testOnBorrow")));
 
-					// config.setTimeBetweenEvictionRunsMillis(30000);
-					// config.setNumTestsPerEvictionRun(-1);
-					// config.setTestWhileIdle(true);
-					// config.setMinEvictableIdleTimeMillis(60000);
-					// config.setLifo(true);
+					config.setTimeBetweenEvictionRunsMillis(30000);
+					config.setNumTestsPerEvictionRun(-1);
+					config.setTestWhileIdle(true);
+					config.setMinEvictableIdleTimeMillis(60000);
+					config.setLifo(true);
 
 					defautlDb = confMap.get(name + ".defaultDb") == null ? 0
 							: Integer.parseInt(confMap.get(name + ".defaultDb"));
@@ -571,7 +558,4 @@ public abstract class RedisClient {
 		}
 	}
 
-	private static void setInitPool(boolean initPool) {
-		RedisClient.initPool = initPool;
-	}
 }

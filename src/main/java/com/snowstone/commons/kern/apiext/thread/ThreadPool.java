@@ -34,8 +34,6 @@ import com.snowstone.commons.kern.exception.SystemException;
  */
 public abstract class ThreadPool {
 	private static Logger logger = LoggerFactory.getLogger(ThreadPool.class);
-	private static final Map<String, ExecutorService> executorServiceMap = new HashMap<String, ExecutorService>();
-	private static Properties newProperties = null;
 	private static volatile ThreadPoolExecutor instance;
 	private static String pre = "thread.pool";// 前缀
 	private static String coreSize;
@@ -53,17 +51,6 @@ public abstract class ThreadPool {
 		queueSize = poolMap.get(pre + ".maxSize");
 		keepAliveTime = poolMap.get(pre + ".keepAliveTime");
 		unit = poolMap.get(pre + ".unit");
-
-//		Conf.addCallBack("ThreadPool", new Conf.Callback() {
-//			@Override
-//			public void doReshConf(Properties newProperties) {
-//				ThreadPool.newProperties = newProperties;
-//				for (String poolname : executorServiceMap.keySet()) {
-//					executorServiceMap.get(poolname).shutdown();
-//				}
-//				executorServiceMap.clear();
-//			}
-//		}, "thread.pool.%s");
 
 	}
 
