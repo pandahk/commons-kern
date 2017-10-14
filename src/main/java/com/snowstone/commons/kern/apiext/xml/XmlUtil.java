@@ -45,13 +45,22 @@ public class XmlUtil {
 	}
 
 
+	/**
+	 * obj to xml
+	 * @param obj
+	 * @return 以格式化的方式输出XML
+	 */
     public static String toFXml(Object obj) {
         XStream xstream = new XStream(new DomDriver("utf8"));
         xstream.processAnnotations(obj.getClass()); // 识别obj类中的注解
         // 以格式化的方式输出XML
         return xstream.toXML(obj);
     }
-    
+    /**
+	 * obj to xml
+	 * @param obj
+	 * @return  以压缩的方式输出XML
+	 */
     public static String toComXml(Object obj) {
 		XStream xstream = new XStream(new DomDriver("GBK"));
 		xstream.processAnnotations(obj.getClass()); // 识别obj类中的注解

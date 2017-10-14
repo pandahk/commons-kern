@@ -21,7 +21,7 @@ public class XmlUtilTest {
 	}
 	
 	@Test
-	public void toXml() {
+	public void toComXml() {
 		System.out.println(XmlUtil.toComXml(getSimpleDepartment()));
 	}
 	
