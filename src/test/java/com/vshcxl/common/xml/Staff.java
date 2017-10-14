@@ -1,4 +1,4 @@
-package com.snowstone.commons.kern.apiext.xml;
+package com.vshcxl.common.xml;
 
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
