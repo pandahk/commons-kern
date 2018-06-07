@@ -11,7 +11,7 @@ import java.util.Properties;
 
 import org.junit.Test;
 
-import com.jszhan.commons.kern.apiext.io.IOUtil;
+import cn.jszhan.commons.kern.apiext.io.IOUtil;
 
 public class IoUtilTest {
 

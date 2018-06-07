@@ -2,7 +2,7 @@ package com.vshcxl.common;
 
 import org.junit.Test;
 
-import com.jszhan.commons.kern.apiext.validate.IdCardUtil;
+import cn.jszhan.commons.kern.apiext.validate.IdCardUtil;
 
 public class IdCardTest {
 

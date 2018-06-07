@@ -2,7 +2,7 @@ package com.vshcxl.common.thread;
 
 import org.junit.Test;
 
-import com.jszhan.commons.kern.apiext.thread.ThreadPool;
+import cn.jszhan.commons.kern.apiext.thread.ThreadPool;
 
 public class ThreadPoolTest {
 

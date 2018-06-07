@@ -2,8 +2,8 @@ package com.vshcxl.common.HttpClient;
 
 import org.junit.Test;
 
-import com.jszhan.commons.kern.apiext.http.HttpClient;
-import com.jszhan.commons.kern.exception.ProjectException;
+import cn.jszhan.commons.kern.apiext.http.HttpClient;
+import cn.jszhan.commons.kern.exception.ProjectException;
 
 public class HttpClientTest {
 

@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 import org.junit.Test;
 
-import com.jszhan.commons.kern.apiext.math.NumberFormatUtil;
+import cn.jszhan.commons.kern.apiext.math.NumberFormatUtil;
 
 public class NumberFormatUtilTest {
 

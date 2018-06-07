@@ -6,7 +6,7 @@ import java.io.IOException;
 
 import org.junit.Test;
 
-import com.jszhan.commons.kern.apiext.collection.ByteUtils;
+import cn.jszhan.commons.kern.apiext.collection.ByteUtils;
 
 public class ByteUtilTest {
 

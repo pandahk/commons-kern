@@ -2,7 +2,7 @@ package com.vshcxl.common.mail;
 
 import org.junit.Test;
 
-import com.jszhan.commons.kern.apiext.mail.Mail;
+import cn.jszhan.commons.kern.apiext.mail.Mail;
 
 public class MailTest {
 

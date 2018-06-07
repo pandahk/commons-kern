@@ -2,7 +2,7 @@ package com.vshcxl.common.collection;
 
 import org.junit.Test;
 
-import com.jszhan.commons.kern.apiext.collection.AmountUtil;
+import cn.jszhan.commons.kern.apiext.collection.AmountUtil;
 
 public class AmountUtilTest {
 

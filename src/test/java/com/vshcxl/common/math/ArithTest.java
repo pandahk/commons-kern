@@ -5,7 +5,7 @@ import java.math.RoundingMode;
 
 import org.junit.Test;
 
-import com.jszhan.commons.kern.apiext.math.Arith;
+import cn.jszhan.commons.kern.apiext.math.Arith;
 
 public class ArithTest {
 

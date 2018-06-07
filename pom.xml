@@ -15,7 +15,7 @@
 	<name>commons-kern</name>
 
 
-  <repositories>  
+ <!--  <repositories>  
     <repository>  
       <id>public</id>  
       <name>Maven Center</name>  
@@ -27,7 +27,7 @@
         <enabled>false</enabled>  
       </snapshots>  
     </repository>  
-  </repositories>  
+  </repositories>   -->
    <distributionManagement>     
     <repository>     
       <id>local_nexus_releases</id>     

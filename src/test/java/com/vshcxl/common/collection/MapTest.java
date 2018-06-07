@@ -6,7 +6,7 @@ import java.util.Map;
 
 import org.junit.Test;
 
-import com.jszhan.commons.kern.apiext.collection.MapUtil;
+import cn.jszhan.commons.kern.apiext.collection.MapUtil;
 
 public class MapTest {
 

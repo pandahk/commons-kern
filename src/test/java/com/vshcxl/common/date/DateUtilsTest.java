@@ -4,7 +4,7 @@ import java.util.Date;
 
 import org.junit.Test;
 
-import com.jszhan.commons.kern.apiext.time.DateUtils;
+import cn.jszhan.commons.kern.apiext.time.DateUtils;
 
 public class DateUtilsTest {
 

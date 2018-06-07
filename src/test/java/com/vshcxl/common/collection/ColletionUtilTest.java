@@ -9,8 +9,8 @@ import java.util.Set;
 
 import org.junit.Test;
 
-import com.jszhan.commons.kern.Conf;
-import com.jszhan.commons.kern.apiext.collection.CollectionUtil;
+import cn.jszhan.commons.kern.Conf;
+import cn.jszhan.commons.kern.apiext.collection.CollectionUtil;
 
 public class ColletionUtilTest {
 
