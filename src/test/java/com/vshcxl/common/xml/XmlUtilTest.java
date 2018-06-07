@@ -7,7 +7,7 @@ import java.util.Map;
 
 import org.junit.Test;
 
-import com.snowstone.commons.kern.apiext.xml.XmlUtil;
+import com.jszhan.commons.kern.apiext.xml.XmlUtil;
 
 public class XmlUtilTest {
 

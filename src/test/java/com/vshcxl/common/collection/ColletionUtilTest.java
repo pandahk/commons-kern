@@ -9,8 +9,8 @@ import java.util.Set;
 
 import org.junit.Test;
 
-import com.snowstone.commons.kern.Conf;
-import com.snowstone.commons.kern.apiext.collection.CollectionUtil;
+import com.jszhan.commons.kern.Conf;
+import com.jszhan.commons.kern.apiext.collection.CollectionUtil;
 
 public class ColletionUtilTest {
 

@@ -5,7 +5,7 @@ import java.util.Map;
 
 import org.junit.Test;
 
-import com.snowstone.commons.kern.apiext.reflect.ReflectAssist;
+import com.jszhan.commons.kern.apiext.reflect.ReflectAssist;
 
 public class ReflectTest {
 

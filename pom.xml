@@ -2,37 +2,64 @@
 <project
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
 	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<!-- <parent>
+	<parent>
 		<groupId>org.jboss.marshalling</groupId>
 		<artifactId>jboss-marshalling-parent</artifactId>
 		<version>1.3.14.GA</version>
-	</parent> -->
+	</parent>
 
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.snowstone</groupId>
+	<groupId>cn.jszhan</groupId>
 	<artifactId>commons-kern</artifactId>
 	<version>1.0.1-SNAPSHOT</version>
 	<name>commons-kern</name>
 
-	<repositories>
+
+  <repositories>  
+    <repository>  
+      <id>public</id>  
+      <name>Maven Center</name>  
+      <url>http://47.104.27.54:8081/nexus/content/groups/public/</url>  
+      <releases>  
+        <enabled>true</enabled>  
+      </releases>  
+      <snapshots>  
+        <enabled>false</enabled>  
+      </snapshots>  
+    </repository>  
+  </repositories>  
+   <distributionManagement>     
+    <repository>     
+      <id>local_nexus_releases</id>     
+      <name>Nexus Release Repository</name>  
+      <url>http://47.104.27.54:8081/nexus/content/repositories/releases/</url>     
+    </repository>     
+    <snapshotRepository>     
+      <id>local_nexus_snapshots</id>     
+      <name>Nexus Snapshot Repository</name>     
+      <url>http://47.104.27.54:8081/nexus/content/repositories/snapshots/</url>     
+    </snapshotRepository>     
+  </distributionManagement> 
+   
+	<!-- <repositories>
 		<repository>
 			<id>public</id>
 			<name>aliyun</name>
 			<url>http://maven.aliyun.com/nexus/content/groups/public/</url>
-			<!-- <url>https://repository.jboss.org/nexus/content/groups/public/</url> -->
+			<url>https://repository.jboss.org/nexus/content/groups/public/</url>
 		</repository>
-	</repositories>
+	</repositories> -->
 
 	<dependencies>
 		<dependency>
 			<groupId>org.jboss.marshalling</groupId>
 			<artifactId>jboss-marshalling</artifactId>
-			<version>1.3.14.GA</version><!--$NO-MVN-MAN-VER$ -->
+			<version>1.3.14.GA</version>
 		</dependency>
 		<dependency>
 			<groupId>org.jboss.marshalling</groupId>
 			<artifactId>jboss-marshalling-serial</artifactId>
-			<version>1.3.14.GA</version><!--$NO-MVN-MAN-VER$ -->
+			<version>1.3.14.GA</version>
 		</dependency>
 		<!-- slf4j -->
 		<dependency>

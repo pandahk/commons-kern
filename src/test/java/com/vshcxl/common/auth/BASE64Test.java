@@ -2,7 +2,7 @@ package com.vshcxl.common.auth;
 
 import org.junit.Test;
 
-import com.snowstone.commons.kern.apiext.auth.BASE64;
+import com.jszhan.commons.kern.apiext.auth.BASE64;
 
 public class BASE64Test {
 	

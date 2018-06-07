@@ -2,7 +2,7 @@ package com.vshcxl.common.auth;
 
 import org.junit.Test;
 
-import com.snowstone.commons.kern.apiext.auth.MD5Util;
+import com.jszhan.commons.kern.apiext.auth.MD5Util;
 
 public class MD5UtilTest {
 
